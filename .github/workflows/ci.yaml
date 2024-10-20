@@ -6,8 +6,15 @@ jobs:
   ci:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checgkout@v4
 
-      - name: Aspect Workflows
-        uses: aspect-build/workflows-action@5.9.24
-              
+      # - name: Aspect Workflows
+      #   uses: aspect-build/workflows-action@5.9.24
+      - uses: bazel-contrib/setup-bazel@0.9.0
+        with:
+          # Avoid downloading Bazel every time.
+          bazelisk-cache: true
+          # Store build cache per workflow.
+          disk-cache: ${{ github.workflow }}
+          # Share repository cache between workflows.
+          repository-cache: true
