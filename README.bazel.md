@@ -1,6 +1,7 @@
 # Bazel workflows
 
 This repository uses [Aspect Workflows](https://aspect.build) to provide an excellent Bazel developer experience.
+
 ## Formatting code
 
 - Run `aspect run format` to re-format all files locally.
@@ -8,14 +9,13 @@ This repository uses [Aspect Workflows](https://aspect.build) to provide an exce
 - Run `pre-commit install` to auto-format changed files on `git commit`.
 - For CI verification, setup `format` task, see https://docs.aspect.build/workflows/features/lint#formatting
 
-
 ## Linting code
 
 We use [rules_lint](https://github.com/aspect-build/rules_lint) to run linting tools using Bazel's aspects feature.
 Linters produce report files, which are cached like any other Bazel actions.
 Printing the report files to the terminal can be done in a couple ways, as follows.
 
-The [`lint` command](https://docs.aspect.build/cli/commands/aspect_lint) is provided by Aspect CLI but is *not* part of the Bazel CLI provided by Google.
+The [`lint` command](https://docs.aspect.build/cli/commands/aspect_lint) is provided by Aspect CLI but is _not_ part of the Bazel CLI provided by Google.
 It collects the correct report files, presents them with nice colored boundaries, gives you interactive suggestions to apply fixes, produces a matching exit code, and more.
 
 - Run `aspect lint //...` to check for lint violations.
@@ -29,7 +29,6 @@ For developers to be able to run a CLI tool without needing manual installation:
 3. Instruct developers to run `./tools/name_of_tool` rather than install that tool on their machine.
 
 See https://blog.aspect.build/run-tools-installed-by-bazel for details.
-
 
 ## Working with npm packages
 
@@ -46,7 +45,6 @@ path/to/package% $(bazel info workspace)/tools/pnpm add http-server
 ```
 
 This ensures you use the same pnpm version as other developers, and the lockfile format will stay constant.
-
 
 ## Working with Python packages
 
@@ -72,9 +70,8 @@ EOF
 
 Then edit the new entry in `tools/BUILD` to replace `package_name_snake_case` with the name of the package that exports a console script, and `scriptname` with the name of the script.
 
->[!NOTE]
->See https://rules-python.readthedocs.io/en/stable/api/python/entry_points/py_console_script_binary.html for more details.
-
+> [!NOTE]
+> See https://rules-python.readthedocs.io/en/stable/api/python/entry_points/py_console_script_binary.html for more details.
 
 ## Working with Go modules
 
@@ -91,7 +88,6 @@ If the package is not already a dependency of the project, you'll have to do som
 % aspect configure
 ```
 
-
 ## Stamping release builds
 
 Stamping produces non-deterministic outputs by including information such as a version number or commit hash.
@@ -107,8 +103,6 @@ Available keys are listed in `/tools/workspace_status.sh` and may include:
 - `STABLE_MONOREPO_VERSION`: a semver-compatible version in the form `2020.44.123+abc1234`
 
 To request stamped build outputs, add the flag `--config=release`.
-
-
 
 ## Working with Cargo
 
@@ -128,5 +122,3 @@ If you need to run `cargo` outside of Bazel, you can do so by running `./tools/c
              25 deactivated features
     Updating crates.io index
 ```
-
-

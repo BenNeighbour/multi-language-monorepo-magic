@@ -17,9 +17,16 @@ prettier.prettier_binary(
 format_multirun(
     name = "format",
     cc = "@llvm_toolchain_llvm//:bin/clang-format",
+    css = ":prettier",
     go = "@aspect_rules_lint//format:gofumpt",
+    graphql = ":prettier",
     javascript = ":prettier",
+    markdown = ":prettier",
     python = "@aspect_rules_lint//format:ruff",
     rust = "@rules_rust//tools/rustfmt:upstream_rustfmt",
+    shell = "@aspect_rules_lint//format:shfmt",
+    sql = ":prettier",
     starlark = "@buildifier_prebuilt//:buildifier",
+    terraform = "@aspect_rules_lint//format:terraform",
+    yaml = "@aspect_rules_lint//format:yamlfmt",
 )
