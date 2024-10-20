@@ -6,7 +6,7 @@ jobs:
   ci:
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checgkout@v4
+      - uses: actions/checkout@v4
 
       # - name: Aspect Workflows
       #   uses: aspect-build/workflows-action@5.9.24
