@@ -1,0 +1,4 @@
+jobs:
+  ci:
+    name: Aspect Workflows
+    uses: BenNeighbour/bazel-action/.github/workflows/.aspect-workflows-reusable.yaml@5.11.10
