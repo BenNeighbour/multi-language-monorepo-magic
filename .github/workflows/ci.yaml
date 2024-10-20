@@ -5,4 +5,4 @@ on: workflow_dispatch
 jobs:
   ci:
     name: Aspect Workflows
-    uses: AtomicApps/workflows-action/.github/workflows/.aspect-workflows-reusable.yaml@5.11.10
+    uses: bazel-action/.github/workflows/.aspect-workflows-reusable.yaml@5.11.10
