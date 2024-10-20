@@ -4,6 +4,8 @@ on: workflow_dispatch
 
 jobs:
   ci:
-    - name: Aspect Workflows
-      uses: aspect-build/workflows-action@5.9.24
-            
+    runs-on: [macos-latest]
+    steps:
+      - name: Aspect Workflows
+        uses: aspect-build/workflows-action@5.9.24
+              
